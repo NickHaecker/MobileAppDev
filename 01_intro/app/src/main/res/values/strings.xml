@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="profile_label_username">You\'re name is %1$s</string>
+    <plurals name="foo">
+        <item quantity="many">A lot of stuff</item>
+    </plurals>
+</resources>
