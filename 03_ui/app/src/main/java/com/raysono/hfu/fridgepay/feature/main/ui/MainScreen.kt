@@ -7,11 +7,14 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.raysono.hfu.fridgepay.feature.main.model.AppState
+import com.raysono.hfu.fridgepay.feature.main.model.appState
 import com.raysono.hfu.fridgepay.feature.main.navigation.BottomNavigationItem.Cart
 import com.raysono.hfu.fridgepay.feature.main.navigation.BottomNavigationItem.Products
 import com.raysono.hfu.fridgepay.feature.main.navigation.MainBottomNavigation
@@ -20,6 +23,7 @@ import com.raysono.hfu.fridgepay.feature.main.navigation.MainNavigationGraph
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
+    val state: AppState by remember { appState }
 
     Scaffold(
         topBar = {
@@ -34,10 +38,10 @@ fun MainScreen() {
                 },
             )
         },
-        bottomBar = { MainBottomNavigation(navController) }
+        bottomBar = { MainBottomNavigation(navController, state.cart) }
     ) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
-            MainNavigationGraph(navController)
+            MainNavigationGraph(state, navController)
         }
     }
 }
