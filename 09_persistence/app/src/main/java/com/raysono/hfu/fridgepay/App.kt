@@ -4,7 +4,11 @@ import android.app.Application
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.room.Room
 import com.raysono.hfu.fridgepay.data.UserSettingsRepository
+import com.raysono.hfu.fridgepay.data.database.AppDatabase
+import com.raysono.hfu.fridgepay.data.productRepo
+import com.raysono.hfu.fridgepay.domain.AddDemoProductsUseCase
 import com.raysono.hfu.fridgepay.domain.InitializeShoppingCartIdUseCase
 import kotlinx.coroutines.runBlocking
 
@@ -19,6 +23,12 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         userSettingsRepo = UserSettingsRepository(userSettingsStore)
+        database = Room
+            .databaseBuilder(this, AppDatabase::class.java, "app")
+            .apply {
+                if (BuildConfig.DEBUG) fallbackToDestructiveMigration()
+            }
+            .build()
 
         /*
          In a real app we should never use runBlocking {}. Especially not on app start up.
@@ -30,11 +40,13 @@ class App : Application() {
          */
         runBlocking {
             InitializeShoppingCartIdUseCase(userSettingsRepo)()
+            AddDemoProductsUseCase(productRepo)()
         }
     }
 
     companion object {
         /** Singleton [UserSettingsRepository] instance. */
         lateinit var userSettingsRepo: UserSettingsRepository
+        lateinit var database: AppDatabase
     }
 }
