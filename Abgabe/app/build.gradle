@@ -7,7 +7,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.raysono.hfu.fridgepay"
+        applicationId "com.better_github_mobile"
         minSdk 26
         targetSdk 31
         versionCode 1
@@ -59,4 +59,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    implementation "org.kohsuke:github-api:1.306"
 }
