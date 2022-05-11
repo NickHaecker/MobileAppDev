@@ -1,4 +1,4 @@
-package com.raysono.hfu.fridgepay.feature.main.ui
+package com.better_github_mobile.feature.main.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

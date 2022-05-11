@@ -1,4 +1,4 @@
-package com.raysono.hfu.fridgepay.feature.main.navigation
+package com.better_github_mobile.feature.main.navigation
 
 import com.raysono.hfu.fridgepay.R
 

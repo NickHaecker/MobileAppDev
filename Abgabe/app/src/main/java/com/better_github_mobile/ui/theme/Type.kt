@@ -1,4 +1,4 @@
-package com.raysono.hfu.fridgepay.ui.theme
+package com.better_github_mobile.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,4 +1,4 @@
-package com.raysono.hfu.fridgepay.domain
+package com.better_github_mobile.domain
 
 import com.raysono.hfu.fridgepay.R
 

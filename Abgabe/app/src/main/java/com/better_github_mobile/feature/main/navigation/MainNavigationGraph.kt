@@ -1,4 +1,4 @@
-package com.raysono.hfu.fridgepay.feature.main.navigation
+package com.better_github_mobile.feature.main.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

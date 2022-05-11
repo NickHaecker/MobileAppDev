@@ -1,4 +1,4 @@
-package com.raysono.hfu.fridgepay
+package com.better_github_mobile
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -2,8 +2,8 @@ package com.better_github_mobile.feature.main.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.material.*
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -16,11 +16,16 @@ import com.better_github_mobile.feature.main.navigation.BottomNavigationItem.Car
 import com.better_github_mobile.feature.main.navigation.BottomNavigationItem.Products
 import com.better_github_mobile.feature.main.navigation.MainBottomNavigation
 import com.better_github_mobile.feature.main.navigation.MainNavigationGraph
-import
+
 
 @Composable
 fun LoginScreen() {
+    var text by rememberSaveable { mutableStateOf("") }
 
+    TextField(
+        value = text,
+        onValueChange = { text = it }
+    )
 }
 
 @Composable

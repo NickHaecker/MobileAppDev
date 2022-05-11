@@ -1,4 +1,4 @@
-package com.raysono.hfu.fridgepay.feature.main.model
+package com.better_github_mobile.feature.main.model
 
 import androidx.compose.runtime.mutableStateOf
 import com.raysono.hfu.fridgepay.domain.Product

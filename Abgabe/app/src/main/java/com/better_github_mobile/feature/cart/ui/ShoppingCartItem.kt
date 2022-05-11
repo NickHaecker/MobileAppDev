@@ -1,4 +1,4 @@
-package com.raysono.hfu.fridgepay.feature.cart.ui
+package com.better_github_mobile.feature.cart.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
