@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Fridge Pay</string>
+    <string name="products_title_navigation">Products</string>
+    <string name="cart_title_navigation">Cart</string>
+    <plurals name="cart_item_count">
+        <item quantity="zero">Never bought</item>
+        <item quantity="one">Bought once</item>
+        <item quantity="other">Bought %1$d times</item>
+    </plurals>
+    <string name="cart_cta_pay">Pay Now</string>
+</resources>

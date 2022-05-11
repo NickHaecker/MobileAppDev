@@ -25,9 +25,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.raysono.hfu.fridgepay.R
+import com.raysono.hfu.fridgepay.domain.Product
+import com.raysono.hfu.fridgepay.domain.allProducts
+import com.raysono.hfu.fridgepay.feature.main.model.addProduct
 
 @Composable
-fun ProductItem() {
+fun ProductItem(product: Product) {
     Card(
         elevation = 3.dp,
         modifier = Modifier.padding(8.dp),
@@ -39,8 +42,8 @@ fun ProductItem() {
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             Image(
-                painter = painterResource(R.drawable.spezi),
-                contentDescription = "product image",
+                painter = painterResource(product.icon),
+                contentDescription = product.name,
                 modifier = Modifier
                     .size(50.dp)
                     .padding(end = 8.dp),
@@ -49,14 +52,14 @@ fun ProductItem() {
                 modifier = Modifier.weight(1f),
             ) {
                 Text(
-                    text = "The product name",
+                    text = product.name,
                     fontWeight = FontWeight.Bold,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
                 CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
                     Text(
-                        text = "Description description\ndescription description description",
+                        text = product.description,
                         maxLines = 3,
                         overflow = TextOverflow.Ellipsis,
                         style = MaterialTheme.typography.subtitle1,
@@ -67,7 +70,7 @@ fun ProductItem() {
                 modifier = Modifier.align(Alignment.CenterVertically),
             ) {
                 IconButton(
-                    onClick = { /* TODO */ },
+                    onClick = { addProduct(product) },
                 ) {
                     Icon(painterResource(R.drawable.ic_baseline_add_shopping_cart_24), contentDescription = "add product")
                 }
@@ -79,5 +82,5 @@ fun ProductItem() {
 @Preview
 @Composable
 fun ProductItem_Preview() {
-    ProductItem()
+    ProductItem(allProducts.first())
 }
