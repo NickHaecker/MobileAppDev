@@ -29,6 +29,7 @@ class LoginViewModel : ViewModel() {
     fun onLogin(username: String, password: String) {
         viewModelScope.launch {
             LoginUseCase(
+                App.webService,
                 App.userSettingsRepo,
                 DownloadProductsUseCase(
                     App.webService,

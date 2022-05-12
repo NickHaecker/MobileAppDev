@@ -2,6 +2,7 @@ package com.raysono.hfu.fridgepay.domain
 
 import com.raysono.hfu.fridgepay.data.UserSettingsRepository
 import com.raysono.hfu.fridgepay.data.cartRepo
+import com.raysono.hfu.fridgepay.data.network.AddItemRequestDto
 import com.raysono.hfu.fridgepay.data.network.WebService
 import com.raysono.hfu.fridgepay.data.productRepo
 import com.raysono.hfu.fridgepay.domain.model.ProductId
@@ -24,7 +25,10 @@ class BuyProductUseCase(
         val updatedCart = addProduct(cart, product)
         cartRepo.updateCart(updatedCart)
 
-        // TODO upload new item to backend
+        webService.addItem(
+            userSettingsRepository.getSettings().cartId.value,
+            AddItemRequestDto(productId.value),
+        )
 
         return@withContext true
     }

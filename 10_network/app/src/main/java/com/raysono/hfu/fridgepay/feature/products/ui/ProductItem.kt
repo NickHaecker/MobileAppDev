@@ -1,6 +1,5 @@
 package com.raysono.hfu.fridgepay.feature.products.ui
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.raysono.hfu.fridgepay.R
 import com.raysono.hfu.fridgepay.domain.model.ProductId
 
@@ -39,16 +39,13 @@ fun ProductItem(product: ProductUI, buyProduct: (id: ProductId) -> Unit) {
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            if (product.icon != null) {
-                // TODO replace with AsyncImage to show product.iconUrl
-                Image(
-                    painter = painterResource(product.icon),
-                    contentDescription = product.name,
-                    modifier = Modifier
-                        .size(50.dp)
-                        .padding(end = 8.dp),
-                )
-            }
+            AsyncImage(
+                model = product.iconUrl ?: product.icon,
+                contentDescription = product.name,
+                modifier = Modifier
+                    .size(50.dp)
+                    .padding(end = 8.dp),
+            )
             Column(
                 modifier = Modifier.weight(1f),
             ) {

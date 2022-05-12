@@ -1,6 +1,5 @@
 package com.raysono.hfu.fridgepay.feature.cart.ui
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,12 +16,12 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.raysono.hfu.fridgepay.R
 import com.raysono.hfu.fridgepay.domain.model.ProductId
 import java.text.NumberFormat
@@ -39,16 +38,13 @@ fun ShoppingCartItem(product: ShoppingCartScreenProductUI) {
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            if (product.icon != null) {
-                // TODO replace with AsyncImage to show product.iconUrl
-                Image(
-                    painter = painterResource(product.icon),
-                    contentDescription = product.name,
-                    modifier = Modifier
-                        .size(50.dp)
-                        .padding(end = 8.dp),
-                )
-            }
+            AsyncImage(
+                model = product.iconUrl ?: product.icon,
+                contentDescription = product.name,
+                modifier = Modifier
+                    .size(50.dp)
+                    .padding(end = 8.dp),
+            )
             Column(
                 modifier = Modifier
                     .padding(start = 8.dp)

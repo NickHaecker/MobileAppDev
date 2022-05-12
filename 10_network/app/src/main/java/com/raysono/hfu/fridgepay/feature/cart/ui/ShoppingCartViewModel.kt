@@ -44,6 +44,7 @@ class ShoppingCartViewModel : ViewModel() {
         viewModelScope.launch {
             PayShoppingCartUseCase(
                 App.webService,
+                App.userSettingsRepo,
             )()
         }
     }

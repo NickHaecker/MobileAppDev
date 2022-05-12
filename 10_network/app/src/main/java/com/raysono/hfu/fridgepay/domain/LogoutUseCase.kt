@@ -1,8 +1,10 @@
 package com.raysono.hfu.fridgepay.domain
 
+import com.raysono.hfu.fridgepay.data.LoginState
 import com.raysono.hfu.fridgepay.data.ProductsRepository
 import com.raysono.hfu.fridgepay.data.ShoppingCartRepository
 import com.raysono.hfu.fridgepay.data.UserSettingsRepository
+import com.raysono.hfu.fridgepay.domain.model.ShoppingCartId
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -13,10 +15,14 @@ class LogoutUseCase(
 ) {
 
     suspend operator fun invoke() = withContext(Dispatchers.Default) {
-        // TODO
-        //  set login-state to logged-out
-        //  clear shopping cart ID
-        //  delete all products
-        //  delete all shopping cart items
+        userSettingsRepository.updateSettings {
+            it.copy(
+                loginState = LoginState.LoggedOut,
+                cartId = ShoppingCartId(""),
+            )
+        }
+
+        productsRepository.deleteAll()
+        shoppingCartRepository.deleteAll()
     }
 }
