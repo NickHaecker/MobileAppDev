@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Fridge Pay</string>
+    <string name="products_title_navigation">Products</string>
+    <string name="cart_title_navigation">Cart</string>
+    <plurals name="cart_item_count">
+        <item quantity="zero">Never bought</item>
+        <item quantity="one">Bought once</item>
+        <item quantity="other">Bought %1$d times</item>
+    </plurals>
+    <string name="cart_cta_pay">Pay Now</string>
+    <string name="login_input_username">Username</string>
+    <string name="login_input_password">Password</string>
+    <string name="login_button_login">Login</string>
+    <string name="login_button_signup">Sign Up</string>
+    <string name="login_label_or">or</string>
+    <string name="profile_title_navigation">Profile</string>
+    <string name="profile_button_logout">Logout</string>
+</resources>
