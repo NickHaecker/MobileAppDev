@@ -16,7 +16,7 @@ import androidx.compose.ui.text.input.KeyboardType.Companion.Text
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.bettergithubmobile.R
-
+import androidx.lifecycle.viewmodel.compose.viewModel
 @Composable
 fun LoginScreen(viewModel: LoginViewModel = viewModel()){
     LoginScreenUi(viewModel::onLogin)
