@@ -8,6 +8,6 @@ class App : Application(){
 
     }
     companion object{
-
+        lateinit var userSettingsRepo: UserSettingsRepository
     }
 }

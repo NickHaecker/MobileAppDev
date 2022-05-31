@@ -1,5 +1,6 @@
 package com.example.bettergithubmobile.domain
 
+import com.example.bettergithubmobile.data.UserSettingsRepository
 import java.util.Base64
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

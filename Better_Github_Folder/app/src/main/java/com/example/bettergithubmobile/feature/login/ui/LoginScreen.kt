@@ -1,5 +1,9 @@
 package com.example.bettergithubmobile.feature.login.ui
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.ui.res.stringResource
+
 @Composable
 fun LoginScreen(viewModel: LoginViewModel = viewModel()){
     LoginScreenUi(viewModel::onLogin)
