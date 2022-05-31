@@ -5,9 +5,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.PointerIconDefaults.Text
@@ -36,7 +34,10 @@ private fun LoginScreenUi(
     ) {
         OutlinedTextField(
             value = userName,
-            onValueChange = { userName = it },
+            onValueChange = {
+                val it = ""
+                userName = it
+            },
             singleLine = true,
             label = {
                 Text(stringResource(R.string.login_input_username))
@@ -44,7 +45,10 @@ private fun LoginScreenUi(
         )
         OutlinedTextField(
             value = password,
-            onValueChange = { password = it },
+            onValueChange = {
+                val it = ""
+                password = it
+            },
             singleLine = true,
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
